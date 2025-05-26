@@ -1,0 +1,75 @@
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const jwt = require('jsonwebtoken');
+const jwksRsa = require('jwks-rsa');
+
+dotenv.config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+/**
+ * Middleware to validate JWT using Auth0
+ */
+const checkJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer '))
+    return res.status(401).json({ error: 'Missing or malformed Authorization header' });
+
+  const token = authHeader.split(' ')[1];
+
+  // Create JWKS client
+  const client = jwksRsa({
+    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`,
+  });
+
+  const getKey = (header, callback) => {
+    client.getSigningKey(header.kid, (err, key) => {
+      if (err) return callback(err);
+      const signingKey = key.getPublicKey();
+      callback(null, signingKey);
+    });
+  };
+
+  jwt.verify(
+    token,
+    getKey,
+    {
+      audience: process.env.AUTH0_AUDIENCE,
+      issuer: `https://${process.env.AUTH0_DOMAIN}/`,
+      algorithms: ['RS256'],
+    },
+    (err, decoded) => {
+      if (err) {
+        console.error('[JWT ERROR]', err);
+        return res.status(401).json({ error: 'Token invalid or expired' });
+      }
+      req.user = decoded;
+      next();
+    }
+  );
+};
+
+/**
+ * Public route
+ */
+app.get('/api/public', (req, res) => {
+  res.json({ message: 'Public route - no authentication needed.' });
+});
+
+/**
+ * Protected route
+ */
+app.get('/api/private', checkJWT, (req, res) => {
+  res.json({
+    message: '✅ You have accessed a protected route!',
+    user: req.user,
+  });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running at http://localhost:${PORT}`);
+});
