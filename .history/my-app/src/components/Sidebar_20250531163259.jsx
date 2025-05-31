@@ -11,7 +11,7 @@ export default function Sidebar() {
         { name: "Overview", path: `/auctionlayout/${auctionId}` },
         { name: "Add Team", path: `/auctionlayout/${auctionId}/add-team/` },
         { name: "Add Player", path: `/auctionlayout/${auctionId}/add-player` },
-        { name: "Auction", path: `/auctionlayout/${auctionId}/auctionMainPage` },
+        { name: "Auction", path: `/auctionlayout/${auctionId}/auction` },
         // { name: "Add Player", path: `/auction/${auctionId}/add-player` },
     ];
 

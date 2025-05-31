@@ -105,7 +105,7 @@ export default function AuctionOverview() {
                     </div>
 
                     <div className='bg-zinc-800 rounded-xl m-3 p-3 pl-10'>
-                        <div className='font-raleway text-xl'>budget_per_team</div>
+                        <div className='font-raleway text-xl'>budget</div>
                         <div className='font-raleway font-bold text-2xl'>{auction?.budget_per_team ?? "budget"}</div>
                     </div>
 

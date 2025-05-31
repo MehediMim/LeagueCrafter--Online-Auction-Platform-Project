@@ -11,29 +11,27 @@ export default function Navbar(params) {
         <div className=" p-4 rounded-xl w-full flex flex-col items-end">
           {/* <div className="w-auto h-auto rounded-xl m-4 flex p-4"> */}
           <div className="w-56  flex justify-center">
-            <Link to="/"><button className=" w-56 font-railway font-bold text-white hover:text-white">LeagueCrafter</button></Link>
+            <Link to="/"><button className=" w-56 font-rubik font-bold text-amber-400 hover:text-white">DRAFT</button></Link>
           </div>
           <div className=" flex justify-evenly   items-center">
             {/* <Link to="/" className="text-amber-600 hover:text-white"><h1 className="text-3xl font-jaro">home</h1></Link> */}
             {/* <Link className="text-amber-600 hover:text-white"><h1 className="text-3xl font-jaro">registrations</h1></Link> */}
-            {!isAuthenticated && <Link to="/login" className=" text-white font-railway font-bold hover:text-white  w-56 rounded-lg py-2 "><button className="w-56 ">login</button></Link>}
-            {isAuthenticated && <Link to="/dashboard" className=" text-white font-railway font-bold hover:text-white  w-56 rounded-lg py-2 "><button className="w-56">dashboard</button></Link>}
+            {!isAuthenticated && <Link to="/login" className="text-white font-rubik font-bold hover:text-white mb-4 w-56 rounded-lg py-2 "><button className="text-2xl w-56 font-rubik">login</button></Link>}
+            {isAuthenticated && <Link to="/dashboard" className="text-white font-rubik font-bold hover:text-white mb-4 w-56 rounded-lg py-2 "><button className="text-2xl w-56 font-rubik">dashboard</button></Link>}
 
           </div>
           {/* </div> */}
           {isAuthenticated && <div className=" h-16 w-56   ml-3 group cursor-pointer ">
             <button className="w-56">
               <div className="flex justify-center  items-center">
-                <div className="rounded-full mr-2 border-green-600 border-4 h-10 w-10">
+                <div className="rounded-full mr-2 border-amber-600 border-4 h-10 w-10">
                   <img src={user.picture} className="rounded-full"></img>
                 </div>
-                <div className="font-raleway text-sm">
                   {user.name}
-                </div>
               </div>
 
 
-              <div className="absolute top-44 -right-32 -translate-x-1/2  bg-zinc-800 text-white rounded-xl p-4 shadow-lg hidden group-hover:block z-50">
+              <div className="absolute top-10 right-0 -translate-x-1/2  bg-zinc-800 text-white rounded-xl p-4 shadow-lg hidden group-hover:block z-50">
                 <p className="text-lg font-bold font-raleway text-left">{user.name}</p>
                 <p className="text-lg  font-kanit text-center font-raleway">{user.email}</p>
                 <button

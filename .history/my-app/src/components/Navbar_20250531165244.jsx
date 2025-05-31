@@ -16,8 +16,8 @@ export default function Navbar(params) {
           <div className=" flex justify-evenly   items-center">
             {/* <Link to="/" className="text-amber-600 hover:text-white"><h1 className="text-3xl font-jaro">home</h1></Link> */}
             {/* <Link className="text-amber-600 hover:text-white"><h1 className="text-3xl font-jaro">registrations</h1></Link> */}
-            {!isAuthenticated && <Link to="/login" className=" text-white font-railway font-bold hover:text-white  w-56 rounded-lg py-2 "><button className="w-56 ">login</button></Link>}
-            {isAuthenticated && <Link to="/dashboard" className=" text-white font-railway font-bold hover:text-white  w-56 rounded-lg py-2 "><button className="w-56">dashboard</button></Link>}
+            {!isAuthenticated && <Link to="/login" className="text-white font-railway font-bold hover:text-white  w-56 rounded-lg py-2 "><button className="text-2xl w-56 font-rubik">login</button></Link>}
+            {isAuthenticated && <Link to="/dashboard" className="text-white font-railway font-bold hover:text-white  w-56 rounded-lg py-2 "><button className="text-2xl w-56 font-rubik">dashboard</button></Link>}
 
           </div>
           {/* </div> */}
@@ -33,7 +33,7 @@ export default function Navbar(params) {
               </div>
 
 
-              <div className="absolute top-44 -right-32 -translate-x-1/2  bg-zinc-800 text-white rounded-xl p-4 shadow-lg hidden group-hover:block z-50">
+              <div className="absolute top-10 right-0 -translate-x-1/2  bg-zinc-800 text-white rounded-xl p-4 shadow-lg hidden group-hover:block z-50">
                 <p className="text-lg font-bold font-raleway text-left">{user.name}</p>
                 <p className="text-lg  font-kanit text-center font-raleway">{user.email}</p>
                 <button

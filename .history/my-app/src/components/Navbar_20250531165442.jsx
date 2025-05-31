@@ -33,7 +33,7 @@ export default function Navbar(params) {
               </div>
 
 
-              <div className="absolute top-44 -right-32 -translate-x-1/2  bg-zinc-800 text-white rounded-xl p-4 shadow-lg hidden group-hover:block z-50">
+              <div className="absolute top-40 -right-32 -translate-x-1/2  bg-zinc-800 text-white rounded-xl p-4 shadow-lg hidden group-hover:block z-50">
                 <p className="text-lg font-bold font-raleway text-left">{user.name}</p>
                 <p className="text-lg  font-kanit text-center font-raleway">{user.email}</p>
                 <button
