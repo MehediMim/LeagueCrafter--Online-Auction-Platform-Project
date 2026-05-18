@@ -50,6 +50,8 @@ export default function Home() {
     navigate(`/auctionlayout/${id}`);
   };
 
+  const buttonClass = "rounded-full px-5 py-2 font-rubik font-bold shadow text-white transition hover:bg-white hover:text-black bg-slate-900 border border-slate-700";
+
   const getStatusStyles = (status) => {
     switch (status) {
       case "ongoing":
@@ -88,13 +90,13 @@ export default function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button
               onClick={handleCreate}
-              className="btn-main min-w-[10rem]"
+              className={`${buttonClass} min-w-[10rem]`}
             >
               Create Auction
             </button>
             <button
               onClick={() => setDropdownOpen((prev) => !prev)}
-              className="btn-main min-w-[10rem]"
+              className={`${buttonClass} min-w-[10rem]`}
             >
               View Auctions
             </button>
@@ -114,7 +116,7 @@ export default function Home() {
                 />
                 <button
                   onClick={handleViewById}
-                  className="btn-main min-w-[6rem]"
+                  className={`${buttonClass} min-w-[6rem]`}
                 >
                   Go
                 </button>
@@ -132,7 +134,7 @@ export default function Home() {
               <div className="relative">
                 <button
                   onClick={() => setDropdownOpen((prev) => !prev)}
-                  className="btn-main w-full rounded-2xl justify-between flex items-center"
+                  className={`${buttonClass} w-full rounded-2xl text-left px-4 py-3 justify-between flex items-center`}
                 >
                   {dropdownOpen ? "Hide auction list" : "Choose from all auctions"}
                 </button>

@@ -16,11 +16,10 @@ export default function Sidebar() {
     { name: "Teams", path: `/auctionlayout/${auctionId}/add-team/` },
     { name: "Players", path: `/auctionlayout/${auctionId}/add-player` },
     { name: "Team Status", path: `/auctionlayout/${auctionId}/team-status` },
-    { name: "History", path: `/auctionlayout/${auctionId}/history` },
     { name: "Auction", path: `/auctionlayout/${auctionId}/auctionMainPage` },
   ];
 
-  const publicLinks = ["Auction", "Team Status", "History"];
+  const publicLinks = ["Auction", "Team Status"];
   const visibleLinks = isCreator ? links : links.filter((link) => publicLinks.includes(link.name));
 
   useEffect(() => {

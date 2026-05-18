@@ -13,7 +13,6 @@ import AuctionAddPlayers from "./pages/auction/AuctionAddPlayers";
 import AuctionAddPlayersForm from "./pages/auction/AuctionAddPlayersForm";
 import AuctionMainPage from "./pages/auction/AuctionMainPage";
 import AuctionTeamStatus from "./pages/auction/AuctionTeamStatus";
-import AuctionPlayerHistory from "./pages/auction/AuctionPlayerHistory";
 
 export default function App() {
 
@@ -43,7 +42,6 @@ export default function App() {
           <Route path="add-player" element={<AuctionAddPlayers />} />
           <Route path="add-player/form" element={<AuctionAddPlayersForm />} />
           <Route path="team-status" element={<AuctionTeamStatus />} />
-          <Route path="history" element={<AuctionPlayerHistory />} />
           <Route path="auctionMainPage" element={<AuctionMainPage />} />
         </Route>
       </Routes>

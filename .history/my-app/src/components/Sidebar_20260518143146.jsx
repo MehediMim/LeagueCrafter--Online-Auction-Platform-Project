@@ -16,12 +16,8 @@ export default function Sidebar() {
     { name: "Teams", path: `/auctionlayout/${auctionId}/add-team/` },
     { name: "Players", path: `/auctionlayout/${auctionId}/add-player` },
     { name: "Team Status", path: `/auctionlayout/${auctionId}/team-status` },
-    { name: "History", path: `/auctionlayout/${auctionId}/history` },
     { name: "Auction", path: `/auctionlayout/${auctionId}/auctionMainPage` },
   ];
-
-  const publicLinks = ["Auction", "Team Status", "History"];
-  const visibleLinks = isCreator ? links : links.filter((link) => publicLinks.includes(link.name));
 
   useEffect(() => {
     const getAuctionDetails = async () => {
@@ -32,16 +28,18 @@ export default function Sidebar() {
         const auctionData = res.data[0];
         setAuction(auctionData);
 
-        setIsCreator(user?.sub === auctionData.creator_id);
+        if (user?.sub === auctionData.creator_id) {
+          setIsCreator(true);
+        }
       } catch (error) {
         console.error("Error fetching auction:", error.message);
       }
     };
 
-    if (auctionId) {
+    if (auctionId && isAuthenticated) {
       getAuctionDetails();
     }
-  }, [auctionId, user]);
+  }, [auctionId, isAuthenticated, user]);
 
   return (
     <div className="w-full">
@@ -50,17 +48,32 @@ export default function Sidebar() {
         <div className="text-xl">{auction ? auction.status : "Loading..."}</div>
       </div>
       <div className="w-full flex flex-col justify-center items-center space-y-3">
-        {visibleLinks.map((link) => (
-          <Link
-            key={link.name}
-            to={link.path}
-            className="w-full pl-10"
-          >
-            <button className="w-40 font-rubik text-white font-bold hover:text-green-400">
-              {link.name}
-            </button>
-          </Link>
-        ))}
+        {links.map((link) =>
+          isCreator ? (
+            <Link
+              key={link.name}
+              to={link.path}
+              className="w-full pl-10"
+            >
+              <button className="w-40 font-rubik text-white font-bold hover:text-green-400">
+                {link.name}
+              </button>
+            </Link>
+          ) : (
+            <div
+              key={link.name}
+              className="w-full pl-10"
+              title="Only visible to the auction creator"
+            >
+              <button
+                className="w-40 font-rubik text-gray-500 font-bold cursor-not-allowed opacity-50"
+                disabled
+              >
+                {link.name}
+              </button>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

@@ -50,6 +50,8 @@ export default function Home() {
     navigate(`/auctionlayout/${id}`);
   };
 
+  const buttonClass = "rounded-full px-5 py-2 font-rubik font-bold shadow text-white transition hover:bg-white hover:text-black bg-slate-900 border border-slate-700";
+
   const getStatusStyles = (status) => {
     switch (status) {
       case "ongoing":

@@ -291,7 +291,7 @@ export default function AuctionMainPage() {
                                 {!currentPlayer.is_sold && (
                                     <button
                                         onClick={placeBid}
-                                        className="btn-main mt-4"
+                                        className="bg-yellow-600 px-4 py-2 mt-4 rounded hover:bg-yellow-700"
                                     >
                                         💸 Place Bid (Next: ${highestBid + 500})
                                     </button>
@@ -301,7 +301,7 @@ export default function AuctionMainPage() {
                                 {!currentPlayer.is_sold && (
                                     <button
                                         onClick={sellPlayer}
-                                        className="btn-main mt-2"
+                                        className="bg-green-600 px-4 py-2 mt-2 rounded hover:bg-green-700"
                                     >
                                         ✅ Sell Player
                                     </button>
@@ -392,14 +392,15 @@ export default function AuctionMainPage() {
                                             <button
                                                 onClick={placeBid}
                                                 disabled={!selectedTeamId}
-                                                className="btn-main mt-4"
+                                                className="bg-yellow-600 px-4 py-2 mt-4 rounded hover:bg-yellow-700 disabled:opacity-50"
                                             >
                                                 💸 Place Bid (Next: ${highestBid + 1000})
                                             </button>
 
+
                                             <button
                                                 onClick={sellPlayer}
-                                                className="btn-main mt-2"
+                                                className="bg-green-600 px-4 py-2 mt-2 rounded hover:bg-green-700"
                                             >
                                                 ✅ Sell Player
                                             </button>

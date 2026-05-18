@@ -88,13 +88,13 @@ export default function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button
               onClick={handleCreate}
-              className="btn-main min-w-[10rem]"
+              className="rounded-full bg-white px-8 py-3 text-black transition hover:bg-slate-200"
             >
               Create Auction
             </button>
             <button
               onClick={() => setDropdownOpen((prev) => !prev)}
-              className="btn-main min-w-[10rem]"
+              className="rounded-full border border-slate-400 px-8 py-3 text-white transition hover:border-white"
             >
               View Auctions
             </button>
@@ -114,7 +114,7 @@ export default function Home() {
                 />
                 <button
                   onClick={handleViewById}
-                  className="btn-main min-w-[6rem]"
+                  className="rounded-2xl bg-emerald-500 px-5 py-3 font-semibold text-black transition hover:bg-emerald-400"
                 >
                   Go
                 </button>
@@ -132,7 +132,7 @@ export default function Home() {
               <div className="relative">
                 <button
                   onClick={() => setDropdownOpen((prev) => !prev)}
-                  className="btn-main w-full rounded-2xl justify-between flex items-center"
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-left text-white transition hover:border-white"
                 >
                   {dropdownOpen ? "Hide auction list" : "Choose from all auctions"}
                 </button>
@@ -167,6 +167,11 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <StatusBadge color="emerald" label="Running" />
+            <StatusBadge color="orange" label="Completed" />
+            <StatusBadge color="sky" label="Upcoming" />
+          </div>
         </div>
       </div>
     </div>

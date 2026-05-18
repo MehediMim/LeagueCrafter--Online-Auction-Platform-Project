@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 mongoose.connect(
-    "mongodb+srv://databaseuser:databaseuser@auctionproject.rfgzeyo.mongodb.net/?appName=AuctionProject",
+    "mongodb+srv://databaseuser:databaseuser@auctionproject.rfgzeyo.mongodb.net/?retryWrites=true&w=majority&appName=AuctionProject",
     {
         useNewurlParser:true,
         useUnifiedTopology:true,

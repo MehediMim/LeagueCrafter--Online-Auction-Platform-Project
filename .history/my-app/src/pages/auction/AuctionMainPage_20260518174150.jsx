@@ -392,10 +392,8 @@ export default function AuctionMainPage() {
                                             <button
                                                 onClick={placeBid}
                                                 disabled={!selectedTeamId}
-                                                className="btn-main mt-4"
-                                            >
-                                                💸 Place Bid (Next: ${highestBid + 1000})
-                                            </button>
+                                            className="btn-main mt-4"
+
 
                                             <button
                                                 onClick={sellPlayer}
