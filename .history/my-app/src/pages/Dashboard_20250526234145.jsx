@@ -13,7 +13,7 @@ export default function Dashboard() {
             setDeletingId(id);
             console.log("Deleting auction with ID:", id);
             
-            await axios.delete(`http://localhost:3000/addauction/${id}`);
+            await axios.delete(`https://leaguecrafter-backend.onrender.com/addauction/${id}`);
             console.log("Delete successful");
             
             // Optimistic update - remove from state immediately
@@ -29,7 +29,7 @@ export default function Dashboard() {
             // If delete failed, optionally re-fetch to ensure consistency
             if (user?.sub) {
                 try {
-                    const res = await axios.get('http://localhost:3000/addauction/find', {
+                    const res = await axios.get('https://leaguecrafter-backend.onrender.com/addauction/find', {
                         params: {
                             creator_id: user.sub
                         }
@@ -50,7 +50,7 @@ export default function Dashboard() {
             try {
                 console.log("Fetching auctions for user:", user.sub);
                 
-                const res = await axios.get('http://localhost:3000/addauction/find', {
+                const res = await axios.get('https://leaguecrafter-backend.onrender.com/addauction/find', {
                     params: {
                         creator_id: user.sub
                     }

@@ -8,7 +8,7 @@ export default function Login() {
     const fetchData = async () => {
       try {
         const token = await getAccessTokenSilently();
-        const res = await fetch('http://localhost:3000/login/', {
+        const res = await fetch('https://leaguecrafter-backend.onrender.com/login/', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

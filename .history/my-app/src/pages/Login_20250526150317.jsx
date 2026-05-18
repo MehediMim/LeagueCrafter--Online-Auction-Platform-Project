@@ -17,7 +17,7 @@ export default function Login() {
 
         
         const res = await axios.post(
-          'http://localhost:3000/login/login',
+          'https://leaguecrafter-backend.onrender.com/login/login',
           {
             name: user?.name || "Anonymous",
             email: user?.email || "unknown@example.com"

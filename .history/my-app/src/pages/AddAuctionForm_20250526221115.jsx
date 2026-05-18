@@ -61,7 +61,7 @@ export default function AddAuctionForm() {
         console.log("Form Submitted:", form);
 
         try {
-            const res = await axios.post("http://localhost:3000/addauction/add", form);
+            const res = await axios.post("https://leaguecrafter-backend.onrender.com/addauction/add", form);
             console.log("Auction Created", res.data);
         } catch (err) {
             console.error("❌ Error:", err);

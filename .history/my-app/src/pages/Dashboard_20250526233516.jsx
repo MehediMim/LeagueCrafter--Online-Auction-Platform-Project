@@ -9,9 +9,9 @@ export default function Dashboard() {
     
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/addauction/${id}`);
+            await axios.delete(`https://leaguecrafter-backend.onrender.com/addauction/${id}`);
             console.log("Deleted");
-            const res = await axios.get('http://localhost:3000/addauction/find', {
+            const res = await axios.get('https://leaguecrafter-backend.onrender.com/addauction/find', {
                 params: {
                     creator_id: user.sub
                 }
@@ -25,7 +25,7 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchFiltered = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/addauction/find', {
+                const res = await axios.get('https://leaguecrafter-backend.onrender.com/addauction/find', {
                     params: {
                         creator_id: user.sub
                     }
